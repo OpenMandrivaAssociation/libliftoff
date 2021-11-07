@@ -27,7 +27,7 @@ developing applications that use %{name}.
 
 
 %prep
-%autosetup -p1
+%autosetup -n -p1 %{name}-v%{version}
 
 %build
 %meson
