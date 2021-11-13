@@ -1,3 +1,7 @@
+%define major 0
+%define libname %mklibname liftoff %{major}
+%define devname %mklibname liftoff -d
+
 Name:           libliftoff
 Version:        0.1.0
 Release:        1
@@ -17,14 +21,24 @@ standing in your way. Users create "virtual planes" called
 layers, set KMS properties on them, and libliftoff will
 allocate planes for these layers if possible.
 
-%package        devel
-Summary:        Development files for %{name}
-Requires:       %{name}%{?_isa} = %{version}-%{release}
+%package -n %{libname}
+Summary:	Library for libliftoff
+Group:		System/Libraries
 
-%description    devel
+%description -n %{libname}
+libliftoff eases the use of KMS planes from userspace without
+standing in your way. Users create "virtual planes" called
+layers, set KMS properties on them, and libliftoff will
+allocate planes for these layers if possible.
+
+%package -n %{devname}
+Summary:	Development files for %{name}
+Group:		Development/C
+Requires:	%{libname} = %{version}-%{release}
+
+%description -n %{devname}
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
-
 
 %prep
 %autosetup -n %{name}-v%{version} -p1
@@ -36,12 +50,12 @@ developing applications that use %{name}.
 %install
 %meson_install
 
-%files
+%files -n %{libname}
+%{_libdir}/*.so.%{major}*
+
+%files -n %{devname}
 %license LICENSE
 %doc README.md
-%{_libdir}/*.so.0*
-
-%files devel
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
