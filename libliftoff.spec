@@ -2,9 +2,12 @@
 %define libname %mklibname liftoff %{major}
 %define devname %mklibname liftoff -d
 
+# As gamescope require 0.2.0, let's pull it as git (it is still not relased).
+%define git 20220131
+
 Name:           libliftoff
-Version:        0.1.0
-Release:        1
+Version:        0.2.0
+Release:        0.%{git}.1
 Summary:        Lightweight KMS plane library
 Group:          System/Libraries
 License:        MIT
