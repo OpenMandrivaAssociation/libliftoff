@@ -6,8 +6,8 @@
 %define git 20220131
 
 Name:           libliftoff
-Version:        0.2.0
-Release:        0.%{git}.1
+Version:        0.3.0
+Release:        1
 Summary:        Lightweight KMS plane library
 Group:          System/Libraries
 License:        MIT
