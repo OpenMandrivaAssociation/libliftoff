@@ -7,7 +7,7 @@
 
 Name:           libliftoff
 Version:        0.3.0
-Release:        1
+Release:        2
 Summary:        Lightweight KMS plane library
 Group:          System/Libraries
 License:        MIT
